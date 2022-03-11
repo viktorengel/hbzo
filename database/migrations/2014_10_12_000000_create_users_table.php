@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
              $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('cedula')->nullable();
+            $table->string('nota')->nullable();
 
             $table->string('role')->default('patient');    //admin - paciente - doctor
 

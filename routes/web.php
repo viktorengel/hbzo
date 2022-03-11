@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //PERFIL PACIENTE
 Route::get('/perfil/paciente',[App\Http\Controllers\HomeController::class,'editpaciente']);
 Route::put('/perfil/{id}/paciente',[App\Http\Controllers\HomeController::class,'updatepaciente']);
+//Route::resources('calif','App\Http\Controllers\CalifController::class');
 
 //PERFIL DOCTOR
 Route::get('/perfil/doctor',[App\Http\Controllers\HomeController::class,'editdoctor']);
