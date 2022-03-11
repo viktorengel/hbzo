@@ -43,7 +43,7 @@
           
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/charts/appointments/line') }}">
-              <i class="ni ni-key-25 text-info"></i> Precuencia de Citas
+              <i class="ni ni-key-25 text-info"></i> Frecuencia de Citas
             </a>
           </li>
           <li class="nav-item">
@@ -82,7 +82,4 @@
             </a>
           </li>
           @endif
-
-
-
         </ul>

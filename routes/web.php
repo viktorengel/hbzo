@@ -81,9 +81,6 @@ Route::middleware('auth')->group(function () {
 	//json http://127.0.0.1:8000/api/specialties/1/doctors 
 	Route::get('/specialties/{especialidad}/doctors', [App\Http\Controllers\Api\SpecialtyController::class,'doctors']);
 	Route::get('/schedule/hours', [App\Http\Controllers\Api\ScheduleController::class,'hours']);
-
-	
-
 });
 	
 

@@ -62,10 +62,46 @@ class UsersTableSeeder extends Seeder
             'role' => 'admin'
         ]);
 
+        User::create([
+            'name' => 'Luana Racines',
+            'email' => 'lracines@paciente.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'remember_token' => Str::random(10),
+            'address' => 'Quito',
+            'phone' => '0997864382',
+            'cedula' => '1709613735',
+            //'genero' => 'femenino',
+            'role' => 'patient'
+        ]);
 
-        
+        User::create([
+            'name' => 'Emilia Rengel',
+            'email' => 'erengel@paciente.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'remember_token' => Str::random(10),
+            'address' => 'Pusuqi',
+            'phone' => '0998343254',
+            'cedula' => '1709613722',
+            //'genero' => 'femenino',
+            'role' => 'patient'
+        ]);
+
+        User::create([
+            'name' => 'JuanP Rengel',
+            'email' => 'jrengel@paciente.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'remember_token' => Str::random(10),
+            'address' => 'Pusuqui',
+            'phone' => '0993443254',
+            'cedula' => '1709333722',
+            // 'genero' => 'masculino',
+            'role' => 'patient'
+        ]);
 
         //$users = User::factory()->count(5)->suspended()->make();
-        User::factory(50)->spatient()->create();
+        User::factory(5)->spatient()->create();
     }
 }

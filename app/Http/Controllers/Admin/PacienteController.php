@@ -40,7 +40,7 @@ class PacienteController extends Controller
       $roles=[
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email|unique:users',
-            'cedula' => 'digits:8'
+            'cedula' => 'digits:10'
 
 
         ];

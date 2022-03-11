@@ -11,7 +11,7 @@
           <!-- Card stats -->
           <div class="row">
             @if($role=='admin')
-            @include('home.card')
+            {{-- @include('home.card') --}}
             @endif
            
 
