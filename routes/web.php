@@ -8,14 +8,15 @@ Route::get('/', function () {
 
 });
 
+ 
 
 //LIMPIAR CACHE DEL PROYECTO
-Route::get('/clear-cache', function () {
-   echo Artisan::call('config:clear');
-   echo Artisan::call('config:cache');
-   echo Artisan::call('cache:clear');
-   echo Artisan::call('route:clear');
-});
+// Route::get('/clear-cache', function () {
+//    echo Artisan::call('config:clear');
+//    echo Artisan::call('config:cache');
+//    echo Artisan::call('cache:clear');
+//    echo Artisan::call('route:clear');
+// });
 //
 
 Auth::routes();
@@ -24,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //PERFIL PACIENTE
 Route::get('/perfil/paciente',[App\Http\Controllers\HomeController::class,'editpaciente']);
 Route::put('/perfil/{id}/paciente',[App\Http\Controllers\HomeController::class,'updatepaciente']);
-//Route::resources('calif','App\Http\Controllers\CalifController::class');
+Route::resource('/calificaciones',App\Http\Controllers\CalifController::class);
 
 //PERFIL DOCTOR
 Route::get('/perfil/doctor',[App\Http\Controllers\HomeController::class,'editdoctor']);
@@ -55,6 +56,8 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::get('/charts/doctors/column', [App\Http\Controllers\Admin\ChartController::class,'doctors']);
 		Route::get('/charts/doctors/column/data', [App\Http\Controllers\Admin\ChartController::class,'doctorsJson']);
 		//charts/doctors/column/data
+
+		Route::get('/reportecalificacion', [App\Http\Controllers\AppointmentController::class,'reportecalificacion']);
 });
 
 
@@ -62,7 +65,7 @@ Route::middleware(['auth','doctor'])->group(function(){
 		Route::get('/schedule',[App\Http\Controllers\Doctor\ScheduleController::class,'edit']);
 		Route::post('/schedule',[App\Http\Controllers\Doctor\ScheduleController::class,'store']);
 
-		Route::get('/paciente',[App\Http\Controllers\Doctor\PacienteController::class,'index']);
+		Route::get('/pacientes',[App\Http\Controllers\Doctor\PacienteController::class,'index']);
 });
 
 Route::middleware('auth')->group(function () {
@@ -77,6 +80,10 @@ Route::middleware('auth')->group(function () {
  
 	Route::get('/appointments/{appointment}/cancel', [App\Http\Controllers\AppointmentController::class,'showCancelForm']);
 	Route::post('/appointments/{appointment}/cancel', [App\Http\Controllers\AppointmentController::class,'postCancel']);
+	
+	Route::get('/calificacion/{appointment}', [App\Http\Controllers\CalificacionController::class,'index']);
+	Route::post('/calificacion/{appointment}', [App\Http\Controllers\CalificacionController::class,'postCalificar']);
+
 	Route::post('/appointments/{appointment}/confirm', [App\Http\Controllers\AppointmentController::class,'postConfirm']);
 
 	//json http://127.0.0.1:8000/api/specialties/1/doctors 

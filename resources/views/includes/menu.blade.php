@@ -39,6 +39,12 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/reportecalificacion') }}">
+              <i class="ni ni-time-alarm text-yellow"></i> Reporte Calificacion
+            </a>
+          </li>
+
 
           
           <li class="nav-item">
@@ -59,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/paciente') }}">
+            <a class="nav-link" href="{{ url('/pacientes') }}">
               <i class="ni ni-time-alarm text-blue"></i> Mis Pacientes
             </a>
           </li>
@@ -79,6 +85,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/appointments') }}">
               <i class="ni ni-time-alarm text-yellow"></i> Mis Citas
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/calificacion') }}">
+              <i class="ni ni-time-alarm text-yellow"></i> Calificacion
             </a>
           </li>
           @endif

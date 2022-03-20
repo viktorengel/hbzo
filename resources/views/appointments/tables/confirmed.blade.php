@@ -45,6 +45,13 @@
                 Ver
             </a>
           @endif
+
+          @if ($role == 'patient' && $appointment->calificacion==null)
+            <a class="btn btn-sm btn-primary" title="Calificar" 
+              href="{{ url('/calificacion/'.$appointment->id) }}">
+                Calificar
+            </a>
+          @endif
           <a class="btn btn-sm btn-danger" title="Cancelar cita" 
             href="{{ url('/appointments/'.$appointment->id.'/cancel') }}">
               Cancelar
