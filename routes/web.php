@@ -56,13 +56,8 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::get('/charts/doctors/column', [App\Http\Controllers\Admin\ChartController::class,'doctors']);
 		Route::get('/charts/doctors/column/data', [App\Http\Controllers\Admin\ChartController::class,'doctorsJson']);
 		//charts/doctors/column/data
-<<<<<<< HEAD
-=======
 
 		Route::get('/reportecalificacion', [App\Http\Controllers\AppointmentController::class,'reportecalificacion']);
-});
->>>>>>> 1401c39da0240f386cf6b1bcd4c2b12e82a84fce
-
 });
 
 Route::middleware(['auth','doctor'])->group(function(){	
