@@ -10,12 +10,12 @@ Route::get('/', function () {
 
 
 //LIMPIAR CACHE DEL PROYECTO
-Route::get('/clear-cache', function () {
-   echo Artisan::call('config:clear');
-   echo Artisan::call('config:cache');
-   echo Artisan::call('cache:clear');
-   echo Artisan::call('route:clear');
-});
+// Route::get('/clear-cache', function () {
+//    echo Artisan::call('config:clear');
+//    echo Artisan::call('config:cache');
+//    echo Artisan::call('cache:clear');
+//    echo Artisan::call('route:clear');
+// });
 //
 
 Auth::routes();
@@ -55,14 +55,14 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::get('/charts/doctors/column', [App\Http\Controllers\Admin\ChartController::class,'doctors']);
 		Route::get('/charts/doctors/column/data', [App\Http\Controllers\Admin\ChartController::class,'doctorsJson']);
 		//charts/doctors/column/data
-});
 
+});
 
 Route::middleware(['auth','doctor'])->group(function(){	
 		Route::get('/schedule',[App\Http\Controllers\Doctor\ScheduleController::class,'edit']);
 		Route::post('/schedule',[App\Http\Controllers\Doctor\ScheduleController::class,'store']);
 
-		Route::get('/paciente',[App\Http\Controllers\Doctor\PacienteController::class,'index']);
+		Route::get('/pacientes',[App\Http\Controllers\Doctor\PacienteController::class,'index']);
 });
 
 Route::middleware('auth')->group(function () {
