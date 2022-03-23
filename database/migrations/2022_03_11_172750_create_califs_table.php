@@ -16,15 +16,17 @@ class CreateCalifsTable extends Migration
         Schema::create('califs', function (Blueprint $table) {
             $table->id();
             $table->string('nota');
-
             // fk doctor
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('users');
+            
+            $table->string('medico');
+            $table->string('calificacion');
 
             // fk paciente
             $table->unsignedBigInteger('patient_id');
-            $table->foreign('patient_id')->references('id')->on('users');
             $table->timestamps();
+            $table->foreign('patient_id')->references('id')->on('users');
         });
     }
 

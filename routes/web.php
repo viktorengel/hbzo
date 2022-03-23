@@ -8,6 +8,7 @@ Route::get('/', function () {
 
 });
 
+ 
 
 //LIMPIAR CACHE DEL PROYECTO
 // Route::get('/clear-cache', function () {
@@ -24,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //PERFIL PACIENTE
 Route::get('/perfil/paciente',[App\Http\Controllers\HomeController::class,'editpaciente']);
 Route::put('/perfil/{id}/paciente',[App\Http\Controllers\HomeController::class,'updatepaciente']);
-//Route::resources('calif','App\Http\Controllers\CalifController::class');
+Route::resource('/calificaciones',App\Http\Controllers\CalifController::class);
 
 //PERFIL DOCTOR
 Route::get('/perfil/doctor',[App\Http\Controllers\HomeController::class,'editdoctor']);
@@ -55,6 +56,12 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::get('/charts/doctors/column', [App\Http\Controllers\Admin\ChartController::class,'doctors']);
 		Route::get('/charts/doctors/column/data', [App\Http\Controllers\Admin\ChartController::class,'doctorsJson']);
 		//charts/doctors/column/data
+<<<<<<< HEAD
+=======
+
+		Route::get('/reportecalificacion', [App\Http\Controllers\AppointmentController::class,'reportecalificacion']);
+});
+>>>>>>> 1401c39da0240f386cf6b1bcd4c2b12e82a84fce
 
 });
 
@@ -77,6 +84,10 @@ Route::middleware('auth')->group(function () {
  
 	Route::get('/appointments/{appointment}/cancel', [App\Http\Controllers\AppointmentController::class,'showCancelForm']);
 	Route::post('/appointments/{appointment}/cancel', [App\Http\Controllers\AppointmentController::class,'postCancel']);
+	
+	Route::get('/calificacion/{appointment}', [App\Http\Controllers\CalificacionController::class,'index']);
+	Route::post('/calificacion/{appointment}', [App\Http\Controllers\CalificacionController::class,'postCalificar']);
+
 	Route::post('/appointments/{appointment}/confirm', [App\Http\Controllers\AppointmentController::class,'postConfirm']);
 
 	//json http://127.0.0.1:8000/api/specialties/1/doctors 

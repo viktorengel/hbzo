@@ -216,7 +216,17 @@ class AppointmentController extends Controller
         return view('appointments.show', compact('appointment', 'role'));
     }
 
+    public function reportecalificacion()
+    {
+        $oldAppointments = Appointment::whereIn('status', ['Atendida', 'Confirmada'])
+                ->paginate(15);
 
+        return view('appointments.reportecalificacion', 
+        compact(
+            'oldAppointments'
+        )
+    );
+    }
 
 
 
