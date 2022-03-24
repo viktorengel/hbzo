@@ -11,8 +11,8 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/calif') }}">
-              <i class="ni ni-check-bold text-blue"></i>Prueba
+            <a class="nav-link" href="{{ url('/libros') }}">
+              <i class="ni ni-check-bold text-blue"></i>Libros
             </a>
           </li>
 

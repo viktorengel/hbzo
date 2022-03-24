@@ -25,12 +25,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //PERFIL PACIENTE
 Route::get('/perfil/paciente',[App\Http\Controllers\HomeController::class,'editpaciente']);
 Route::put('/perfil/{id}/paciente',[App\Http\Controllers\HomeController::class,'updatepaciente']);
-Route::resource('/calificaciones',App\Http\Controllers\CalifController::class);
+
 
 //PERFIL DOCTOR
 Route::get('/perfil/doctor',[App\Http\Controllers\HomeController::class,'editdoctor']);
 Route::put('/perfil/{id}/doctor',[App\Http\Controllers\HomeController::class,'updatedoctor']);
-
 
 Route::middleware(['auth','admin'])->group(function(){	
 		/*ESPECIALIDAD*/
@@ -58,6 +57,8 @@ Route::middleware(['auth','admin'])->group(function(){
 		//charts/doctors/column/data
 
 		Route::get('/reportecalificacion', [App\Http\Controllers\AppointmentController::class,'reportecalificacion']);
+
+		Route::resource('libros',App\Http\Controllers\LibroController::class);
 });
 
 Route::middleware(['auth','doctor'])->group(function(){	
