@@ -7,7 +7,7 @@
 @section('content')
   {{-- form-group col-lg-5 col-md-5 col-sm-5 col-xs-12 --}}
 
-  <div class="header bg-gradient-primary pb-6 pt-3 pt-md-6">
+  <div class="header bg-gradient-success pb-6 pt-3 pt-md-6">
      
     </div>
     

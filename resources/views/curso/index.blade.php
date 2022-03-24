@@ -1,10 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.panel')
 
 @section('template_title')
-    Cliente
+    Curso
 @endsection
 
 @section('content')
+
+    <div class="header bg-gradient-success pb-6 pt-3 pt-md-6">
+     
+    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -13,12 +18,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Cliente') }}
+                                {{ __('Curso') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                <a href="{{ route('cursos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -37,30 +42,30 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
+										<th>Desc</th>
 										<th>Valor</th>
-										<th>Dinero</th>
 										<th>Fecha</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($clientes as $cliente)
+                                    @foreach ($cursos as $curso)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $cliente->Nombre }}</td>
-											<td>{{ $cliente->valor }}</td>
-											<td>{{ $cliente->dinero }}</td>
-											<td>{{ $cliente->fecha }}</td>
+											<td>{{ $curso->Nombre }}</td>
+											<td>{{ $curso->Desc }}</td>
+											<td>{{ $curso->Valor }}</td>
+											<td>{{ $curso->Fecha }}</td>
 
                                             <td>
-                                                <form action="{{ route('clientes.destroy',$cliente->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('clientes.show',$cliente->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('clientes.edit',$cliente->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('cursos.destroy',$curso->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('cursos.show',$curso->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('cursos.edit',$curso->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -70,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $clientes->links() !!}
+                {!! $cursos->links() !!}
             </div>
         </div>
     </div>

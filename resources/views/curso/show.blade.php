@@ -1,9 +1,8 @@
 @extends('layouts.panel')
 
-@section('title','Especialidad')
-
-
-@section('subtitle','Especialidades')
+@section('template_title')
+    {{ $curso->name ?? 'Mostrar Curso' }}
+@endsection
 
 @section('content')
 
@@ -16,10 +15,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Mostrar Libro</span>
+                            <span class="card-title">Mostrar Curso</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Atras</a>
+                            <a class="btn btn-primary" href="{{ route('cursos.index') }}"> Atras</a>
                         </div>
                     </div>
 
@@ -27,11 +26,19 @@
                         
                         <div class="form-group">
                             <strong>Nombre:</strong>
-                            {{ $libro->nombre }}
+                            {{ $curso->Nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $libro->precio }}
+                            <strong>Desc:</strong>
+                            {{ $curso->Desc }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Valor:</strong>
+                            {{ $curso->Valor }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha:</strong>
+                            {{ $curso->Fecha }}
                         </div>
 
                     </div>
@@ -40,4 +47,3 @@
         </div>
     </section>
 @endsection
-

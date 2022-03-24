@@ -23,6 +23,12 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('/cursos') }}">
+              <i class="ni ni-check-bold text-blue"></i>Cursos
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{ url('/especialidades') }}">
               <i class="ni ni-check-bold text-blue"></i> Gestion de Especialidad
             </a>

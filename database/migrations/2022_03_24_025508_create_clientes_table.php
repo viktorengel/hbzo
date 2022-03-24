@@ -17,6 +17,8 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('Nombre');
             $table->integer('valor');
+            $table->float('dinero');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

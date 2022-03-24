@@ -21,7 +21,7 @@
   <div class="main-content">
     
     <!-- Header -->
-    <div class="header bg-gradient-primary py-6 py-lg-7" style=" background: #172b4d !important;">
+    <div class="header bg-gradient-success py-6 py-lg-7" style=" background: #172b4d !important;">
       
      
     </div>

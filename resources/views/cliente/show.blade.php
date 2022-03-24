@@ -28,6 +28,14 @@
                             <strong>Valor:</strong>
                             {{ $cliente->valor }}
                         </div>
+                        <div class="form-group">
+                            <strong>Dinero:</strong>
+                            {{ $cliente->dinero }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha:</strong>
+                            {{ $cliente->fecha }}
+                        </div>
 
                     </div>
                 </div>

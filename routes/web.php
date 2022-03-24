@@ -61,6 +61,8 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::resource('libros',App\Http\Controllers\LibroController::class);
 
 		Route::resource('clientes',App\Http\Controllers\ClienteController::class);
+
+		Route::resource('cursos',App\Http\Controllers\CursoController::class);
 });
 
 Route::middleware(['auth','doctor'])->group(function(){	

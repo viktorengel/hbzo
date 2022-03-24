@@ -15044,7 +15044,7 @@ button.bg-lighter:focus
     background-color: #cbd3da !important;
 }
 
-.bg-gradient-primary
+.bg-gradient-success
 {
     background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
 }
@@ -15400,7 +15400,7 @@ button.section-darker:focus
     background-color: black !important;
 }
 
-.bg-gradient-primary
+.bg-gradient-success
 {
     background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
 }
