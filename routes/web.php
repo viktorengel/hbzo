@@ -59,6 +59,8 @@ Route::middleware(['auth','admin'])->group(function(){
 		Route::get('/reportecalificacion', [App\Http\Controllers\AppointmentController::class,'reportecalificacion']);
 
 		Route::resource('libros',App\Http\Controllers\LibroController::class);
+
+		Route::resource('clientes',App\Http\Controllers\ClienteController::class);
 });
 
 Route::middleware(['auth','doctor'])->group(function(){	

@@ -17,6 +17,12 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('/clientes') }}">
+              <i class="ni ni-check-bold text-blue"></i>Clientes
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{ url('/especialidades') }}">
               <i class="ni ni-check-bold text-blue"></i> Gestion de Especialidad
             </a>
