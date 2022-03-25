@@ -10,7 +10,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{{ url('/libros') }}">
               <i class="ni ni-check-bold text-blue"></i>Libros
             </a>
@@ -26,7 +26,7 @@
             <a class="nav-link" href="{{ url('/cursos') }}">
               <i class="ni ni-check-bold text-blue"></i>Cursos
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/especialidades') }}">
@@ -115,6 +115,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/calificacion') }}">
               <i class="ni ni-time-alarm text-yellow"></i> Calificacion
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/enfermedades') }}">
+              <i class="ni ni-check-bold text-blue"></i>Registro de enfermedades
             </a>
           </li>
           @endif
