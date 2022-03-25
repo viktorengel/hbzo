@@ -6,9 +6,10 @@
 
 @section('content')
 
-    <div class="header bg-gradient-success pb-6 pt-3 pt-md-6">
-
+<div class="header bg-gradient-success pb-6 pt-3 pt-md-6">
+     
     </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -17,17 +18,13 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Enfermedade') }}
+                                {{ __('Enfermedades preexistentes') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('enfermedades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear nuevo') }}
+                                  {{ __('Registrar enfermedad') }}
                                 </a>
-
-                                <h3 class="mb-0 btnagregar ">
-                        <button id="btnImprimir" class="btn btn-sm btn-success"><i class="fas fa-plus-circle " ></i> Descargar reporte</button>
-                    </h3>
                               </div>
                         </div>
                     </div>
@@ -38,16 +35,16 @@
                     @endif
 
                     <div class="card-body">
-                        <div class="table-responsive" id="imprimible">
+                        <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>Fecha de Diagnóstico</th>
+
+										<th>Fecha Diagnostico</th>
 										<th>Nombre Enfermedad</th>
-										<th>Obs. Cliente</th>
-										<th>Fecha de Registro</th>
+										<th>Obs Cliente</th>
+										<th>Fecha Registro</th>
 										<th>Observaciones</th>
 
                                         <th></th>
@@ -66,6 +63,7 @@
 
                                             <td>
                                                 <form action="{{ route('enfermedades.destroy',$enfermedade->id) }}" method="POST">
+                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('enfermedades.show',$enfermedade->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
                                                     <a class="btn btn-sm btn-success" href="{{ route('enfermedades.edit',$enfermedade->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
@@ -83,26 +81,4 @@
             </div>
         </div>
     </div>
-
-<script>
-    function imprimirElemento(elemento){
-        var ventana = window.open('','PRINT','height=1024,width=768');
-        ventana.document.write('<html><head><title>'+ document.title+ '</title>');
-        ventana.document.write('<link rel="stylesheet" href="imprimir.css">'); //Cargamos otra hoja, no la normal
-        ventana.document.write('</head><body >');
-        ventana.document.write(elemento.innerHTML);
-        ventana.document.write('</body></html>');
-        ventana.document.close();
-        ventana.focus();
-        ventana.print();
-        ventana.close();
-        return true;
-    }
-    document.querySelector("#btnImprimir").addEventListener("click",function(){
-    var div = document.querySelector("#imprimible");
-    imprimirElemento(div);
-    });
-</script>
-
-
 @endsection

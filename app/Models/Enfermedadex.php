@@ -19,12 +19,20 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
+
+ 
 class Enfermedade extends Model
 {
     
+  public function enfermedadades()
+  {
+    return $this->belongsToMany(User::class,'specialty_user')->withTimestamps();
+  }
+
     static $rules = [
 		'fecha_diag' => 'required',
 		'nombre_enf' => 'required',
+		'obs_cli' => 'required',
 		'fecha_reg' => 'required',
 		'observaciones' => 'required',
     ];

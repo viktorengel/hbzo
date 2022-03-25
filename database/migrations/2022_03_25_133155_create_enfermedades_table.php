@@ -15,16 +15,14 @@ class CreateEnfermedadesTable extends Migration
     {
         Schema::create('enfermedades', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->date('fecha_diag');
             $table->string('nombre_enf');
             $table->text('obs_cli')->nullable();
             $table->date('fecha_reg');
             $table->text('observaciones');
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
