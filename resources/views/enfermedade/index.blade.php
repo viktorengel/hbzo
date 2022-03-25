@@ -24,6 +24,10 @@
                                 <a href="{{ route('enfermedades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear nuevo') }}
                                 </a>
+
+                                <h3 class="mb-0 btnagregar ">
+                        <button id="btnImprimir" class="btn btn-sm btn-success"><i class="fas fa-plus-circle " ></i> Descargar reporte</button>
+                    </h3>
                               </div>
                         </div>
                     </div>
@@ -34,7 +38,7 @@
                     @endif
 
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive" id="imprimible">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
@@ -79,4 +83,26 @@
             </div>
         </div>
     </div>
+
+<script>
+    function imprimirElemento(elemento){
+        var ventana = window.open('','PRINT','height=1024,width=768');
+        ventana.document.write('<html><head><title>'+ document.title+ '</title>');
+        ventana.document.write('<link rel="stylesheet" href="imprimir.css">'); //Cargamos otra hoja, no la normal
+        ventana.document.write('</head><body >');
+        ventana.document.write(elemento.innerHTML);
+        ventana.document.write('</body></html>');
+        ventana.document.close();
+        ventana.focus();
+        ventana.print();
+        ventana.close();
+        return true;
+    }
+    document.querySelector("#btnImprimir").addEventListener("click",function(){
+    var div = document.querySelector("#imprimible");
+    imprimirElemento(div);
+    });
+</script>
+
+
 @endsection
