@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Enfermedade
+ * Class Inf
  *
  * @property $id
+ * @property $user_id
+ * @property $user_cedula
  * @property $fecha_diag
  * @property $nombre_enf
  * @property $obs_cli
@@ -16,23 +18,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
+ * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-
- 
-class Enfermedade extends Model
+class Inf extends Model
 {
     
-  public function enfermedadades()
-  {
-    return $this->belongsToMany(User::class,'specialty_user')->withTimestamps();
-  }
-
     static $rules = [
 		'fecha_diag' => 'required',
 		'nombre_enf' => 'required',
-		'obs_cli' => 'required',
 		'fecha_reg' => 'required',
 		'observaciones' => 'required',
     ];
@@ -44,8 +39,16 @@ class Enfermedade extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha_diag','nombre_enf','obs_cli','fecha_reg','observaciones'];
+    protected $fillable = ['user_id','user_cedula','fecha_diag','nombre_enf','obs_cli','fecha_reg','observaciones'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
+    
 
 }

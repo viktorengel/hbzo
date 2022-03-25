@@ -1,7 +1,7 @@
 @extends('layouts.panel')
 
 @section('template_title')
-    Enfermedade
+    Inf
 @endsection
 
 @section('content')
@@ -22,8 +22,8 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('enfermedades.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Registrar enfermedad') }}
+                                <a href="{{ route('infs.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Crear nueva') }}
                                 </a>
                               </div>
                         </div>
@@ -34,17 +34,15 @@
                         </div>
                     @endif
 
-                    <h3 class="mb-0 btnagregar ">
-                        <button id="btnImprimir" class="btn btn-sm btn-success"><i class="fas fa-plus-circle " ></i> Imprimir Reporte</button>
-                    </h3>
-
                     <div class="card-body">
-                        <div class="table-responsive" id="imprimible">
+                        <div class="table-responsive"  id="imprimible">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-
+                                        
+										<th>User Id</th>
+										<th>User Cedula</th>
 										<th>Fecha Diagnostico</th>
 										<th>Nombre Enfermedad</th>
 										<th>Obs Cliente</th>
@@ -55,20 +53,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($enfermedades as $enfermedade)
+                                    @foreach ($infs as $inf)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $enfermedade->fecha_diag }}</td>
-											<td>{{ $enfermedade->nombre_enf }}</td>
-											<td>{{ $enfermedade->obs_cli }}</td>
-											<td>{{ $enfermedade->fecha_reg }}</td>
-											<td>{{ $enfermedade->observaciones }}</td>
+											<td>{{ Auth::user()->name }}</td>
+											<td>{{ Auth::user()->cedula }}</td>
+											<td>{{ $inf->fecha_diag }}</td>
+											<td>{{ $inf->nombre_enf }}</td>
+											<td>{{ $inf->obs_cli }}</td>
+											<td>{{ $inf->fecha_reg }}</td>
+											<td>{{ $inf->observaciones }}</td>
 
                                             <td>
-                                                <form action="{{ route('enfermedades.destroy',$enfermedade->id) }}" method="POST">
-                                                    <!-- <a class="btn btn-sm btn-primary " href="{{ route('enfermedades.show',$enfermedade->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> -->
-                                                    <a class="btn btn-sm btn-success" href="{{ route('enfermedades.edit',$enfermedade->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('infs.destroy',$inf->id) }}" method="POST">
+                                                    
+                                                    <a class="btn btn-sm btn-success" href="{{ route('infs.edit',$inf->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $enfermedades->links() !!}
+                {!! $infs->links() !!}
             </div>
         </div>
     </div>

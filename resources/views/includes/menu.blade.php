@@ -123,5 +123,11 @@
               <i class="ni ni-check-bold text-blue"></i>Registro de enfermedades
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/infs') }}">
+              <i class="ni ni-check-bold text-blue"></i>Registro de Enfermedades2
+            </a>
+          </li>
           @endif
         </ul>
