@@ -21,7 +21,10 @@ class CreateEnfermedadesTable extends Migration
             $table->text('obs_cli')->nullable();
             $table->date('fecha_reg');
             $table->text('observaciones');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
